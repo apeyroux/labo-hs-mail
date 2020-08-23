@@ -1,0 +1,31 @@
+diff --git a/HaskellNet-SSL.cabal b/HaskellNet-SSL.cabal
+index 88c245d..786edd1 100644
+--- a/HaskellNet-SSL.cabal
++++ b/HaskellNet-SSL.cabal
+@@ -38,6 +38,7 @@ library
+                        connection >= 0.2.7,
+                        network >= 2.4,
+                        bytestring,
++                       network-bsd,
+                        data-default
+   else
+     build-depends:     base >= 4 && < 5,
+@@ -46,4 +47,5 @@ library
+                        connection >= 0.2.7 && < 0.3,
+                        network >= 2.4 && < 2.9,
+                        bytestring,
++                       network-bsd,
+                        data-default
+diff --git a/src/Network/HaskellNet/SSL.hs b/src/Network/HaskellNet/SSL.hs
+index acb9b84..19e6da7 100644
+--- a/src/Network/HaskellNet/SSL.hs
++++ b/src/Network/HaskellNet/SSL.hs
+@@ -3,7 +3,7 @@ module Network.HaskellNet.SSL
+   , defaultSettingsWithPort
+   ) where
+ 
+-import Network.Socket.Internal (PortNumber)
++import Network.Socket (PortNumber)
+ 
+ data Settings = Settings
+               { sslPort                        :: PortNumber
